@@ -8,19 +8,25 @@ BOSCH_CODERACE 2023 ROUND 2_DATA MIGRATION Topic 3
 python -m pip install -r requirements.txt
 ```
 
-## Run
+## Usage
 
 ### Task 1
 
-Input: **Requirements.reqif** in the same folder with final.py
+Input: **Requirements.reqif** in the same folder with **final.py**
 
 Command line:
 
-```python
- final.py
 ```
+python final.py [PROFILE]
+```
+**Note**: The program only receives one argument as the PROFILE that users need to set it in file **.conf**. The **DEFAULT** profile will be used if no arguments provided.
 
-Output: **data.json**, **ECU_REQ.rst**
+Output: **data.json**
+
+### Task 2
+Input:
+
+Output:  **ECU_REQ.rst**
 
 ### Task 3
 

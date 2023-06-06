@@ -58,11 +58,12 @@ class ReqIF_Reader:
         """
         Ready data to store in json file
         """
+        loaded_config = globals.loaded_config
         temp_data = {}
-        temp_data["Module Name"] = globals.specifications[0].long_name
-        temp_data["Module Type"] = globals.spec_types[1].long_name
+        temp_data[loaded_config.get("Module Name")] = globals.specifications[0].long_name
+        temp_data[loaded_config.get("Module Type")] = globals.spec_types[1].long_name
         ListArtifactInfo = self.extract_keys_values()
-        temp_data["List Artifact Info"] = ListArtifactInfo
+        temp_data[loaded_config.get("List Artifact Info")] = ListArtifactInfo
         self.Data_in_json = temp_data
 
     def read_json_file(self, path):
@@ -81,25 +82,37 @@ class ReqIF_Reader:
             Output final : [list['identifier']]
         """
         list = {}
-
+        loaded_config = globals.loaded_config
         for iterate in globals.spec_objects:
             obj = {}
             reference = globals.reqif_bundle.get_spec_object_by_ref(iterate.identifier)
-            obj["Attribute Type"] = globals.reqif_bundle.get_spec_object_type_by_ref(
+            obj[
+                loaded_config.get("Attribute Type")
+            ] = globals.reqif_bundle.get_spec_object_type_by_ref(
                 reference.spec_object_type
             ).long_name
-            obj["Modified On"] = iterate.last_change
-            obj["Description"] = iterate.description if iterate.description else ""
-            obj["ReqIF.Text"] = ""
+            obj[loaded_config.get("Modified On")] = iterate.last_change
+            obj[loaded_config.get("Description")] = (
+                iterate.description if iterate.description else ""
+            )
+
             for key in iterate.attribute_map:
                 def_ref = iterate.attribute_map.get(key).definition_ref
-                obj[return_key(globals.def_dictionary[def_ref])] = self.process_value(
+                keys_values = self.process_value(
                     return_key(globals.def_dictionary[def_ref]),
                     iterate.attribute_map.get(key).value,
                 )
+                if len(keys_values) > 1:
+                    obj[keys_values[0][0]] = keys_values[0][1]
+                    obj[keys_values[1][0]] = keys_values[1][1]
+                else:
+                    obj[keys_values[0][0]] = keys_values[0][1]
+            ### pop junk content
             obj.pop(None)
+            ### enlist each obj with its own identifier
             list[iterate.identifier] = obj
         final = []
+        ### Sort "list[]"" as Hierarchy instruction to "final[]"
         for iterate in globals.specifications:
             for current_hierarchy_node in globals.hierachy(iterate):
                 final.append(list[current_hierarchy_node.spec_object])
@@ -107,28 +120,33 @@ class ReqIF_Reader:
 
     def process_value(self, key, value):
         """
-        Resolve value for each key
+        Resolve value for each key.
+        Return [[key,value]]
+        To access: [0][0] for key [0][1] for value
+        In case ReqIF.Name we can also use value for ReqIF.Text  [0]->ReqIf.Text; [1]->ReqIF.Name
         """
         enum_dictionary = globals.enum_dictionary
         loaded_config = globals.loaded_config
         profile = globals.current_config_profile
-        if key == loaded_config[profile].get("ReqIF.ForeignID"):
-            return int(value)
-        elif key == loaded_config[profile].get("ReqIF.Name"):
-            return resolve_html_code(value)[:-2]
-        elif key == loaded_config[profile].get("Safety Classification"):
-            return enum_dictionary[value[0]]
-        elif key == loaded_config[profile].get("Status"):
-            return enum_dictionary[value[0]]
-
-        return value
+        if key == loaded_config.get("ReqIF.ForeignID"):
+            return [[key, int(value)]]
+        elif key == loaded_config.get("ReqIF.Name"):
+            return [
+                [loaded_config.get("ReqIF.Text"), value],
+                [key, resolve_html_code(value)[:-2]],
+            ]
+        elif key == loaded_config.get("Safety Classification"):
+            return [[key, enum_dictionary[value[0]]]]
+        elif key == loaded_config.get("Status"):
+            return [[key, enum_dictionary[value[0]]]]
+        return [[key, value]]
 
 
 if __name__ == "__main__":
     if len(sys.argv) == 1:
-        globals.load_config()
+        globals.load_profile()
     elif len(sys.argv) == 2:
-        globals.load_config(sys.argv[1])
+        globals.load_profile(sys.argv[1])
     else:
         raise Exception("Too many arguments")
     check_os()
@@ -137,8 +155,9 @@ if __name__ == "__main__":
     ### TASK 1
     data_in_json = ReqIF_Reader()
     write_to_json_file(data_in_json.Data_in_json)
-    write_to_rst_file(data_in_json.Data_in_json)
+
     ### TASK 2
+    write_to_rst_file(data_in_json.Data_in_json)
     """
     Read json file, return rst file
     """

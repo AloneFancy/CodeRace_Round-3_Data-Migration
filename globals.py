@@ -5,7 +5,7 @@ global spec_types, spec_objects, data_types, specifications, hierachy, reqif_bun
 global current_config_profile, loaded_config
 
 
-def load_config(profile=None):
+def load_profile(profile=None):
     global current_config_profile, loaded_config    
     if not profile:
         current_config_profile = "DEFAULT"
@@ -62,3 +62,4 @@ def init():
     hierachy = reqif_bundle.iterate_specification_hierarchy
     init_spec_dictionary()
     init_enum_dictionary()
+init()

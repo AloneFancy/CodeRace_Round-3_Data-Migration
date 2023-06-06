@@ -13,7 +13,8 @@ Document Scope
    :id: 629016
    :artifact_type: Information
 
-	<put below a first description of the scope for ECU requirement specification>
+	<put below a first description of the scope for software requirement
+	specification>
 	
 
 Document Specific Glossary
