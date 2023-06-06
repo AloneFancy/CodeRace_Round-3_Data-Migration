@@ -22,7 +22,7 @@ python final.py  [PROFILE name in **keys.conf**]
 
 **Note**: The program only receives one argument as the PROFILE that users need to set it in file **.conf**. The **DEFAULT** profile will be used if no arguments provided.
 
-Output: **data.json** with mapped contents
+Output: **output/data.json** with mapped contents
 
 ### **Task 2**
 
@@ -30,7 +30,7 @@ Task 2 run sequently with Task 1 by the same command line.
 
 Input: **data.json** extracted from RST file.
 
-Output:  **ECU_REQ.rst** after user's configurations.
+Output:  **output/ECU_Req.rst** after user's configurations.
 
 ### **Task 3**
 
@@ -40,31 +40,40 @@ Auth.py\
 &nbsp;&nbsp;   |__REPO_PATH: Path to your *Repository* starting with your *username*\
 &nbsp;&nbsp;   |__token: Your Github token with enough permissions
 
+You can run the following command line to upload the current file in **output** folder or you can uncomment last line in **final.py** to run it sequently with Task 1 and Task 2.
+
 ```shell
 python gitupload.py
 ```
 
-Source files: **convert.py**, **final.py**, **requirements.txt**, **git_upload.py**, **globals.py**
+## **Source files**
 
-### **Feature**
+ **convert.py**, **final.py**, **requirements.txt**, **git_upload.py**, **globals.py**
 
-Task 1: 40
-[ ] Array mapping: 10
-[x] Attribute name and the same value: 10
-[ ] Attribute name and customize value: 10
-[ ] Easy to configure file: 5
-[ ] Clean code: 5\
+## **Configuration files**
 
-Task 2: 40
+Includes **keys.conf**
 
-[ ] Heading, Information, Directive: 5
-[ ] Attribute value text: 10
-[ ] Sub-directive: 10
-[ ] Html (convert html to RST text): 10
-[ ] Clean code: 5\
+### **keys.conf**
 
-Task 3: 20
+With defaults keys' values, you can modify it by defining a new section and other keys' values as you wish. Remember to load section's name in command line to apply new configurations.
 
-[ ] Push to GitHub: 10
-[ ] Overwrite: 5
-[ ] Clean code: 5
+### **Features**
+
+Task 1
+
+- [ ] Array mapping
+- [x] Attribute name and the same value
+- [ ] Attribute name and customize value
+
+Task 2
+
+- [x] Heading, Information, Directive
+- [x] Attribute value text
+- [x] Sub-directive
+- [x] Html (convert html to RST text)
+
+Task 3
+
+- [x] Push to GitHub
+- [x] Overwrite

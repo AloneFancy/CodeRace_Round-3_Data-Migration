@@ -102,7 +102,7 @@
             "Safety Classification": "ASIL A",
             "Status": "NEW/CHANGED",
             "Allocation": "SW Allocation",
-            "crq": "RQONE03587423",
+            "gay": "RQONE03587423",
             "Identifier": 629015,
             "Creator": "kit7fe",
             "Contributor": "MIG1COB"
@@ -124,7 +124,7 @@
             "Description": "",
             "Created On": "2019-10-08T06:18:45.677Z",
             "ReqIF.Text": "<div xmlns=\"http://www.w3.org/1999/xhtml\">&lt;description of the non functional requirement in requirements language&gt;</div>",
-            "crq": "RQONE03587423",
+            "gay": "RQONE03587423",
             "Safety Classification": "ASIL B",
             "Allocation": "Non_Func Allocation",
             "Verification Criteria": "Non Func Test Environment:\nTest Bench/Lab-car with hardware setup\n\nSuccess Criteria: Verify whether the signal value is correct or not",

@@ -4,7 +4,7 @@ import globals
 from convert import *
 import json, os
 import sys
-
+import subprocess
 
 def check_os():
     global PATH
@@ -158,9 +158,9 @@ if __name__ == "__main__":
 
     ### TASK 2
     write_to_rst_file(data_in_json.Data_in_json)
-    """
-    Read json file, return rst file
-    """
-    data = data_in_json.read_json_file(PATH + "data.json")
-    rst_file_path = "ECU_Requirement.rst"
-    ### TASK 3
+    
+    ### TASK 3 can be run by 'python git_upload.py' independently
+    # 'git_upload.py' can run independent from 'final.py' to push RST file to Github
+    # uncomment the following code if you want to see 
+    # full processes performance of handling Reqif file to uploading results to Github repo:
+    # subprocess.run(['python','git_upload.py'])
