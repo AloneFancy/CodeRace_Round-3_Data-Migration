@@ -18,7 +18,6 @@ def init_spec_dictionary():
         except:
             pass
 
-
 def init_enum_dictionary():
     """
     Init enum dictionary for data types
@@ -33,7 +32,6 @@ def init_enum_dictionary():
             for enum in data_definition.values:
                 enum_dictionary[enum.identifier] = enum.long_name
 
-
 def init():
     """
     Initialize global variables
@@ -47,5 +45,7 @@ def init():
     data_types = reqif_bundle.core_content.req_if_content.data_types
     specifications = reqif_bundle.core_content.req_if_content.specifications
     hierachy = reqif_bundle.iterate_specification_hierarchy
+    for i in spec_types:
+        print(i.long_name)
     init_spec_dictionary()
     init_enum_dictionary()

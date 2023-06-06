@@ -10,7 +10,7 @@ def resolve_html_code(html):
 
 def RSTfile(data):
     """
-    Extract data into formatted RST file
+    Extract data in json to formatted RST file
     """
     Raw_file="\n"
     Raw_file+="="*len(data["Module Name"]) + "\n"
@@ -46,14 +46,13 @@ def RSTfile(data):
                 Raw_file+='\n'*2 + '   .. verify::\n\n'
                 Raw_file+=         "\t\t"+re.sub('\n','\n\t\t',scope["Verification Criteria"])
 
-    print(Raw_file)
     return Raw_file
 
 def return_key(long_name):
     """
     Convert string values to keys (long_name is how you access attribute of keys)
     """
-    if long_name == 'ReqIF.ForeignModifiedBy':
+    if  long_name == 'ReqIF.ForeignModifiedBy':
         return 'Contributor'
     elif long_name == 'ReqIF.ForeignCreatedBy':
         return 'Creator'

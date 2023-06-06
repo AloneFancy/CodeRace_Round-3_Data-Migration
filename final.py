@@ -7,38 +7,39 @@ from convert import *
 import json
 import config
 
-
+PATH = './'
 
 def extract_to_json(data):
     try:
-        with open("data.json", "w") as f:
-            json.dump(data, f)
+        with open(PATH+"output/data.json", "w") as f:
+            json.dump(data, f,indent=4)
         f.close()
     except:
-        raise Exception("Wrong path")
-
+        raise Exception("No permission to write file or check if output folder is created")
 
 def extract_to_rst(data):
+    rst_file = RSTfile(data)
     try:
-        with open("ECU_Req.rst", "w") as f:
+        with open(PATH + "output/ECU_Req.rst", "w") as f:
             f.flush()
-            f.write(RSTfile(data))
+            f.write(rst_file)
         f.close()
     except:
-        raise Exception("Wrong path")
-
+        raise Exception("No permission to write file or check if output folder is created")
 
 def read_json_file(path):
     """
     Read Json data from path
     """
-    f = open(path)
-    return json.load(f)
+    f = open(path,mode='r')
+    data = json.load(f)
+    f.close()
+    return data
 
 def extract_keys_values():
     """
     Variables guide:
-        list{'identifier':{obj{}}}
+        list{'identifier':{obj:json{}}}
         Output final : [list['identifier']]
     """
     list={}
@@ -53,7 +54,6 @@ def extract_keys_values():
         for key in iterate.attribute_map:
             def_ref = iterate.attribute_map.get(key).definition_ref
             obj[return_key(globals.def_dictionary[def_ref])]=process_value(return_key(globals.def_dictionary[def_ref]),iterate.attribute_map.get(key).value)
-
         obj.pop(None)
         list[iterate.identifier]=obj
     final = []
@@ -80,18 +80,21 @@ def process_value(key,value):
     return value
 
 def process_data():
-    data = {}
-    data["Module Name"] = globals.specifications[0].long_name
-    data["Module Type"] = globals.spec_types[1].long_name
+    """
+    Ready data to store in json file
+    """
+    temp_data = {}
+    temp_data["Module Name"] = globals.specifications[0].long_name
+    temp_data["Module Type"] = globals.spec_types[1].long_name
     ListArtifactInfo = extract_keys_values() 
-    data["List Artifact Info"] = ListArtifactInfo
-    return data
+    temp_data["List Artifact Info"] = ListArtifactInfo
+    return temp_data
 
 if __name__ == "__main__":
     globals.init()
-    data = process_data()
-    extract_to_json(data)
-    extract_to_rst(data)
+    data_in_json = process_data()
+    extract_to_json(data_in_json)
+    extract_to_rst(data_in_json)
     ### TASK 1
     config.configuration()
     ### TASK 2
