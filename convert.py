@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import re
-
-
+import globals
 def resolve_html_code(html):
     """
     Resolve Html code
@@ -51,21 +50,13 @@ def RSTfile(data):
 def return_key(long_name):
     """
     Convert string values to keys (long_name is how you access attribute of keys)
-    """
-    if  long_name == 'ReqIF.ForeignModifiedBy':
-        return 'Contributor'
-    elif long_name == 'ReqIF.ForeignCreatedBy':
-        return 'Creator'
-    elif long_name == 'ReqIF.ForeignCreatedOn':
-        return 'Created On'
-    elif long_name == 'ReqIF.ForeignID':
-        return 'Identifier'
-    elif long_name == 'ReqIF.Name':
-        return 'Title'
-    elif long_name == "ReqIF.Description"        :return None
-    elif long_name == "Artifact Format"          :return None
-    elif long_name == "ReqIF.ForeignModifiedOn"  :return None
-    elif long_name == "ReqIF.ChapterName"        :return None    
-    
+    """    
+    loaded_config = globals.loaded_config
+    current_config = globals.current_config
+    if loaded_config[current_config].get(long_name):
+        if loaded_config[current_config].get(long_name)!='NULL':
+            return loaded_config[current_config].get(long_name)
+        elif loaded_config[current_config].get(long_name)=='NULL':
+            return None
     return long_name
 

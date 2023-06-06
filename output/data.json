@@ -8,7 +8,12 @@
             "Description": "",
             "ReqIF.Text": "",
             "Title": "General Overview / Document Scope",
+            "Artifact Format": [
+                "_a5981117-232c-4d92-9fbe-a4e444751285"
+            ],
+            "ReqIF.ChapterName": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p xmlns=\"http://www.w3.org/1999/xhtml\">General Overview / Document Scope</p>\n</div>",
             "Created On": "2019-10-08T06:18:45.677Z",
+            "ReqIF.ForeignModifiedOn": "2019-10-08T06:18:45.677Z",
             "Identifier": 629021,
             "Creator": "kit7fe",
             "Contributor": "kit7fe"
@@ -19,6 +24,11 @@
             "Description": "",
             "ReqIF.Text": "",
             "Title": "Document Scope",
+            "ReqIF.ChapterName": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p xmlns=\"http://www.w3.org/1999/xhtml\">Document Scope</p>\n</div>",
+            "ReqIF.ForeignModifiedOn": "2019-10-08T06:18:45.662Z",
+            "Artifact Format": [
+                "_a5981117-232c-4d92-9fbe-a4e444751285"
+            ],
             "Created On": "2019-10-08T06:18:45.662Z",
             "Identifier": 629020,
             "Creator": "kit7fe",
@@ -29,6 +39,10 @@
             "Modified On": "2019-10-08T06:18:45.662Z",
             "Description": "",
             "ReqIF.Text": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p xmlns=\"http://www.w3.org/1999/xhtml\">&lt;put below a first description of the scope for ECU requirement specification&gt;</p>\n</div>",
+            "Artifact Format": [
+                "_a5981117-232c-4d92-9fbe-a4e444751285"
+            ],
+            "ReqIF.ForeignModifiedOn": "2019-10-08T06:18:45.662Z",
             "Created On": "2019-10-08T06:18:45.662Z",
             "Title": "<put below a first description of the scope for software requirement specification>",
             "Identifier": 629016,
@@ -41,6 +55,11 @@
             "Description": "",
             "ReqIF.Text": "",
             "Created On": "2019-10-08T06:18:45.662Z",
+            "ReqIF.ForeignModifiedOn": "2019-10-08T06:18:45.662Z",
+            "ReqIF.ChapterName": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p xmlns=\"http://www.w3.org/1999/xhtml\">Document Specific Glossary</p>\n</div>",
+            "Artifact Format": [
+                "_a5981117-232c-4d92-9fbe-a4e444751285"
+            ],
             "Title": "Document Specific Glossary",
             "Identifier": 629012,
             "Creator": "kit7fe",
@@ -52,6 +71,10 @@
             "Description": "",
             "ReqIF.Text": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p xmlns=\"http://www.w3.org/1999/xhtml\">&lt;put below a definition of first glossary specific terms&gt;</p>\n</div>",
             "Title": "<put below a definition of first glossary specific terms>",
+            "Artifact Format": [
+                "_a5981117-232c-4d92-9fbe-a4e444751285"
+            ],
+            "ReqIF.ForeignModifiedOn": "2019-10-08T06:18:45.677Z",
             "Created On": "2019-10-08T06:18:45.677Z",
             "Identifier": 629013,
             "Creator": "kit7fe",
@@ -62,8 +85,13 @@
             "Modified On": "2019-10-08T06:18:45.662Z",
             "Description": "",
             "ReqIF.Text": "",
+            "Artifact Format": [
+                "_a5981117-232c-4d92-9fbe-a4e444751285"
+            ],
             "Title": "System Requirement",
+            "ReqIF.ChapterName": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p xmlns=\"http://www.w3.org/1999/xhtml\">System Requirements</p>\n</div>",
             "Created On": "2019-10-08T06:18:45.662Z",
+            "ReqIF.ForeignModifiedOn": "2019-10-08T06:18:45.662Z",
             "Identifier": 629019,
             "Creator": "kit7fe",
             "Contributor": "kit7fe"
@@ -74,7 +102,11 @@
             "Description": "",
             "ReqIF.Text": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p xmlns=\"http://www.w3.org/1999/xhtml\">&lt;infos relevant for the complete chapter&gt;<br xmlns=\"http://www.w3.org/1999/xhtml\"/>Note to the template:<br xmlns=\"http://www.w3.org/1999/xhtml\"/>- the example requirements below are independent of each other and are showing the different possibilities of the requirements structure</p>\n</div>",
             "Title": "<infos relevant for the complete chapter>",
+            "Artifact Format": [
+                "_a5981117-232c-4d92-9fbe-a4e444751285"
+            ],
             "Created On": "2019-10-08T06:18:45.677Z",
+            "ReqIF.ForeignModifiedOn": "2019-10-08T06:18:45.677Z",
             "Identifier": 629017,
             "Creator": "kit7fe",
             "Contributor": "kit7fe"
@@ -84,7 +116,12 @@
             "Modified On": "2019-10-08T06:18:45.646Z",
             "Description": "",
             "ReqIF.Text": "",
+            "ReqIF.ChapterName": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p xmlns=\"http://www.w3.org/1999/xhtml\">ECU 1st Requirement</p>\n</div>",
             "Title": "ECU 1st Requirement",
+            "Artifact Format": [
+                "_a5981117-232c-4d92-9fbe-a4e444751285"
+            ],
+            "ReqIF.ForeignModifiedOn": "2019-10-08T06:18:45.646Z",
             "Created On": "2019-10-08T06:18:45.646Z",
             "Identifier": 629022,
             "Creator": "kit7fe",
@@ -98,10 +135,14 @@
             "VAR_FUNC_SYS": "VAR_Func_sys value",
             "Title": "<description of the requirement in requirements language>",
             "Verification Criteria": "Test Environment:\nTest Bench/Lab-car with hardware setup\n\nSuccess Criteria: Verify whether the signal value is correct or not",
+            "ReqIF.ForeignModifiedOn": "2023-05-23T02:41:23.510Z",
             "Created On": "2019-10-08T06:18:45.662Z",
             "Safety Classification": "ASIL A",
             "Status": "NEW/CHANGED",
             "Allocation": "SW Allocation",
+            "Artifact Format": [
+                "_a5981117-232c-4d92-9fbe-a4e444751285"
+            ],
             "CRQ": "RQONE03587423",
             "Identifier": 629015,
             "Creator": "kit7fe",
@@ -112,8 +153,13 @@
             "Modified On": "2019-10-08T06:18:45.677Z",
             "Description": "",
             "ReqIF.Text": "",
+            "Artifact Format": [
+                "_a5981117-232c-4d92-9fbe-a4e444751285"
+            ],
             "Title": "System Non Fonctional Requirements",
             "Created On": "2019-10-08T06:18:45.677Z",
+            "ReqIF.ForeignModifiedOn": "2019-10-08T06:18:45.677Z",
+            "ReqIF.ChapterName": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n<p xmlns=\"http://www.w3.org/1999/xhtml\">System Non Functional Requirements</p>\n</div>",
             "Identifier": 629018,
             "Creator": "kit7fe",
             "Contributor": "kit7fe"
@@ -130,6 +176,10 @@
             "Verification Criteria": "Non Func Test Environment:\nTest Bench/Lab-car with hardware setup\n\nSuccess Criteria: Verify whether the signal value is correct or not",
             "Status": "NEW/CHANGED",
             "VAR_FUNC_SYS": "Var_func_sys value 2",
+            "ReqIF.ForeignModifiedOn": "2023-05-23T02:56:54.487Z",
+            "Artifact Format": [
+                "_a5981117-232c-4d92-9fbe-a4e444751285"
+            ],
             "Title": "<description of the non functional requirement in requirements language>",
             "Identifier": 629014,
             "Creator": "kit7fe",

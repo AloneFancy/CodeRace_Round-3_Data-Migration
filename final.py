@@ -8,7 +8,7 @@ from convert import *
 # import git_upload
 import json, os
 import config
-import configparser
+import sys
 
 
 def check_os():
@@ -54,6 +54,10 @@ def create_output_folder():
 
 
 class ReqIF_Reader:
+    """
+    Attributes:
+        Data_in_json: Return data  in json type after extracting Reqif file
+    """
     def __init__(self):
         """
         Ready data to store in json file
@@ -123,14 +127,13 @@ class ReqIF_Reader:
         return value
 
 
-
 if __name__ == "__main__":
     check_os()
     create_output_folder()
     globals.init()
-    data_in_json = ReqIF_Reader()
     ### TASK 1
-    config.configuration()
+    config.user_config()
+    data_in_json = ReqIF_Reader()        
     write_to_json_file(data_in_json.Data_in_json)
     write_to_rst_file(data_in_json.Data_in_json)
     ### TASK 2
@@ -138,5 +141,5 @@ if __name__ == "__main__":
     Read json file, return rst file
     """
     data = data_in_json.read_json_file(PATH + "data.json")
-    rst_file_path = "ECU_Requirement.py"
+    rst_file_path = "ECU_Requirement.rst"
     ### TASK 3
