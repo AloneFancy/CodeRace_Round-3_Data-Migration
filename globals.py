@@ -2,7 +2,17 @@ from reqif.parser import ReqIFParser
 import config
 
 global spec_types, spec_objects, data_types, specifications, hierachy, reqif_bundle
-global current_config,loaded_config
+global current_config_profile, loaded_config
+
+
+def load_config(profile=None):
+    global current_config_profile, loaded_config
+    if not profile:
+        current_config_profile = "DEFAULT"
+    else:
+        current_config_profile = profile
+    loaded_config = config.load_config(current_config_profile)
+
 
 def init_spec_dictionary():
     """
@@ -41,7 +51,7 @@ def init():
     Initialize global variables
     """
     global spec_types, spec_objects, data_types, specifications, hierachy, reqif_bundle
-    
+
     input_file_path = "Requirements.reqif"
     reqif_bundle = ReqIFParser.parse(input_file_path)
     ### Global variables' definitions
@@ -50,10 +60,5 @@ def init():
     data_types = reqif_bundle.core_content.req_if_content.data_types
     specifications = reqif_bundle.core_content.req_if_content.specifications
     hierachy = reqif_bundle.iterate_specification_hierarchy
-    for i in spec_types:
-        print(i.long_name)
-    global current_config,loaded_config
-    current_config = 'DEFAULT'
-    loaded_config = config.default_config()
     init_spec_dictionary()
     init_enum_dictionary()

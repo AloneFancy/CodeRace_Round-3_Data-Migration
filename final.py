@@ -1,13 +1,8 @@
 #!/usr/bin/env python
 
 import globals
-
-# from globals import *
 from convert import *
-
-# import git_upload
 import json, os
-import config
 import sys
 
 
@@ -41,7 +36,7 @@ def write_to_rst_file(data):
         raise Exception(
             "No permission to write file or check if output folder is created"
         )
-    
+
 
 def create_output_folder():
     """
@@ -58,6 +53,7 @@ class ReqIF_Reader:
     Attributes:
         Data_in_json: Return data  in json type after extracting Reqif file
     """
+
     def __init__(self):
         """
         Ready data to store in json file
@@ -114,26 +110,32 @@ class ReqIF_Reader:
         Resolve value for each key
         """
         enum_dictionary = globals.enum_dictionary
-        if key == "Identifier":
+        loaded_config = globals.loaded_config
+        profile = globals.current_config_profile
+        if key == loaded_config[profile].get("ReqIF.ForeignID"):
             return int(value)
-        elif key == "Title":
-            return resolve_html_code(value)
-        elif key == "Safety Classification":
+        elif key == loaded_config[profile].get("ReqIF.Name"):
+            return resolve_html_code(value)[:-2]
+        elif key == loaded_config[profile].get("Safety Classification"):
             return enum_dictionary[value[0]]
-        elif key == "Status":
+        elif key == loaded_config[profile].get("Status"):
             return enum_dictionary[value[0]]
-        elif key == None:
-            pass
+
         return value
 
 
 if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        globals.load_config()
+    elif len(sys.argv) == 2:
+        globals.load_config(sys.argv[1])
+    else:
+        raise Exception("Too many arguments")
     check_os()
     create_output_folder()
     globals.init()
     ### TASK 1
-    config.user_config()
-    data_in_json = ReqIF_Reader()        
+    data_in_json = ReqIF_Reader()
     write_to_json_file(data_in_json.Data_in_json)
     write_to_rst_file(data_in_json.Data_in_json)
     ### TASK 2
