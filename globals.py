@@ -3,7 +3,7 @@ import config
 
 global spec_types, spec_objects, data_types, specifications, hierachy, reqif_bundle
 global current_config_profile, loaded_config
-global _config
+
 
 def load_profile(profile=None):
     global current_config_profile, loaded_config    
@@ -11,9 +11,7 @@ def load_profile(profile=None):
         current_config_profile = "DEFAULT"
     else:
         current_config_profile = profile
-    global _config
-    _config = config.ConfigClass()
-    loaded_config = _config.load_config(current_config_profile)
+    loaded_config = config.load_config(current_config_profile)
 
 
 def init_spec_dictionary():
