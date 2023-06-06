@@ -62,6 +62,7 @@ class ReqIF_Reader:
         temp_data = {}
         temp_data[loaded_config.get("Module Name")] = globals.specifications[0].long_name
         temp_data[loaded_config.get("Module Type")] = globals.spec_types[1].long_name
+        print(temp_data)
         ListArtifactInfo = self.extract_keys_values()
         temp_data[loaded_config.get("List Artifact Info")] = ListArtifactInfo
         self.Data_in_json = temp_data
@@ -127,7 +128,6 @@ class ReqIF_Reader:
         """
         enum_dictionary = globals.enum_dictionary
         loaded_config = globals.loaded_config
-        profile = globals.current_config_profile
         if key == loaded_config.get("ReqIF.ForeignID"):
             return [[key, int(value)]]
         elif key == loaded_config.get("ReqIF.Name"):
@@ -140,8 +140,14 @@ class ReqIF_Reader:
         elif key == loaded_config.get("Status"):
             return [[key, enum_dictionary[value[0]]]]
         return [[key, value]]
+    
+    def config_values(self,values_to_modify):        
+        for object in values_to_modify:
+            if object.upper() == 'DEFAULT_HEADER':
+                break
+                      
 
-
+            
 if __name__ == "__main__":
     if len(sys.argv) == 1:
         globals.load_profile()
@@ -153,7 +159,9 @@ if __name__ == "__main__":
     create_output_folder()
     globals.init()
     ### TASK 1
+    values_to_modify = globals._config.mod_values()
     data_in_json = ReqIF_Reader()
+    #data_in_json.config_values(values_to_modify)
     write_to_json_file(data_in_json.Data_in_json)
 
     ### TASK 2
