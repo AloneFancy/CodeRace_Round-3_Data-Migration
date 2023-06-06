@@ -5,7 +5,7 @@ global spec_types, spec_objects, data_types, specifications, hierachy, reqif_bun
 
 def init_spec_dictionary():
     """
-    Init def
+    Init types dictionary to lookup by identifiers
     """
     global def_dictionary
     def_dictionary = {}
@@ -18,9 +18,11 @@ def init_spec_dictionary():
         except:
             pass
 
+
 def init_enum_dictionary():
     """
-    Init enum dictionary for data types
+    Init enum dictionary for data types to lookup by identifiers
+    (Currently only accept T_Status and **T_Safety Classification**)
     """
     global enum_dictionary
     enum_dictionary = {}
@@ -31,6 +33,7 @@ def init_enum_dictionary():
         ):
             for enum in data_definition.values:
                 enum_dictionary[enum.identifier] = enum.long_name
+
 
 def init():
     """
