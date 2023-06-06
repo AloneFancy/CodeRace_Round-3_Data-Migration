@@ -6,7 +6,7 @@ global current_config_profile, loaded_config
 
 
 def load_config(profile=None):
-    global current_config_profile, loaded_config
+    global current_config_profile, loaded_config    
     if not profile:
         current_config_profile = "DEFAULT"
     else:
