@@ -6,6 +6,9 @@ global current_config_profile, loaded_config,customize_values
 
 
 def load_profile(profile=None):
+    """
+    Load profile in keys.conf otherwise using DEFAULT Profile
+    """
     global current_config_profile, loaded_config,customize_values
     if not profile:
         current_config_profile = "DEFAULT"

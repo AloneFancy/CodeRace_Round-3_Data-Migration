@@ -13,7 +13,8 @@ def load_config(profile='DEFAULT'):
     return config[profile]
 
 def load_config_value():
-    """    
+    """
+    Config Values for RST file    
     """
     config = configparser.ConfigParser()
     config.read('values.conf')  
