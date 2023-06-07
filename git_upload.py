@@ -13,8 +13,8 @@ if __name__ == "__main__":
     data_path = 'output/ECU_Req.rst'
     repo = github_instance.get_repo('nlthanhcse/Bosch_CodeRace_Bibongde')
 
-    branch_name = 'output' # You need to create a branch in order to make the following code work. 
-
+    branch_name = repo.default_branch # You need to create a branch in order to make the following code work. 
+    
     with open(data_path,'r') as f:    
         try: 
             """
