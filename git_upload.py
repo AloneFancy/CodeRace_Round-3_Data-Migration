@@ -7,16 +7,15 @@ if __name__ == "__main__":
     to authorize github by tokens and repository to work on.
     Push file from 'data_path' to 'file_position' in auth.REPO_PATH
     """
-    # 'g' is an instance to connect to GitHubAPI
-    g = Github(auth.token)   
+    # 'github_instance' is an instance to connect to GitHubAPI
+    github_instance = Github(auth.token)   
     file_position= 'ECU_Requirement.rst'
     data_path = 'output/ECU_Req.rst'
-    repo = g.get_repo(auth.REPO_PATH)
+    repo = github_instance.get_repo('nlthanhcse/Bosch_CodeRace_Bibongde')
 
     branch_name = 'output' # You need to create a branch in order to make the following code work. 
 
     with open(data_path,'r') as f:    
-        data = f.read()        
         try: 
             """
             Try to delete file_position if it exists

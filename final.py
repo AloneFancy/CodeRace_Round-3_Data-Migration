@@ -7,6 +7,9 @@ import sys
 import subprocess
 
 def check_os():
+    """
+    Adapting Output folder for each OS
+    """
     global PATH
     if os.name == "nt":
         PATH = "output\\"
@@ -127,7 +130,6 @@ class ReqIF_Reader:
         """
         enum_dictionary = globals.enum_dictionary
         loaded_config = globals.loaded_config
-        profile = globals.current_config_profile
         if key == loaded_config.get("ReqIF.ForeignID"):
             return [[key, int(value)]]
         elif key == loaded_config.get("ReqIF.Name"):
@@ -140,6 +142,18 @@ class ReqIF_Reader:
         elif key == loaded_config.get("Status"):
             return [[key, enum_dictionary[value[0]]]]
         return [[key, value]]
+    
+    def config_value(self):
+        customize_values = globals.customize_values        
+        if not customize_values:
+            return
+        for i in customize_values:
+            temp = i.split('=')
+            if len(temp)>2:
+                pass
+            else:
+                self.Data_in_json[temp[0].strip()] = temp[1].strip()
+        pass
 
 
 if __name__ == "__main__":

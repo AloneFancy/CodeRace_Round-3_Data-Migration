@@ -12,4 +12,10 @@ def load_config(profile='DEFAULT'):
     
     return config[profile]
 
+def load_config_value():
+    """    
+    """
+    config = configparser.ConfigParser()
+    config.read('values.conf')  
+    return config['RST']  
 

@@ -35,10 +35,23 @@ Output:  **output/ECU_Req.rst** after user's configurations.
 ### **Task 3**
 
 **Upload** or **Update** (replace if existed) RST file to Github with authorization in auth.py.\
-"Auth.py"'s structure that you have to generate yourself:\
+"Auth.py" is a python file that you have to generate yourself with the following structures:\
 Auth.py\
 &nbsp;&nbsp;   |__REPO_PATH: Path to your *Repository* starting with your *username*\
-&nbsp;&nbsp;   |__token: Your Github token with enough permissions
+&nbsp;&nbsp;   |__token: Your Github token with enough permissions (delete, write, read)
+
+Example:
+
+```py
+REPO_PATH  = 'path/to/my/github/repo'
+token ='your_token_need_to_be_hidden'
+```
+
+We don't need **REPO_PATH** anymore because it is defined by **nlthanhcse/Bosch_CodeRace_Bibongde**
+
+```python
+repo = github_instance.get_repo('nlthanhcse/Bosch_CodeRace_Bibongde')
+```
 
 You can run the following command line to upload the current file in **output** folder or you can uncomment last line in **final.py** to run it sequently with Task 1 and Task 2.
 
@@ -56,7 +69,11 @@ Includes **keys.conf**
 
 ### **keys.conf**
 
-With defaults keys' values, you can modify it by defining a new section and other keys' values as you wish. Remember to load section's name in command line to apply new configurations.
+With defaults keys' values, users can modify it by defining a new section and other keys' values as you wish. Remember to load section's name in command line to apply new configurations.
+
+### **values.conf**
+
+Under **RST** section, users are allowed to config Json values to display in RST file. 
 
 ### **Features**
 
