@@ -28,7 +28,7 @@ Output: **output/data.json** with mapped contents
 
 Task 2 run sequently with Task 1 by the same command line.
 
-Input: **data.json** extracted from RST file.
+Input: **data.json** extracted from ReqIF file.
 
 Output:  **output/ECU_Req.rst** after user's configurations.
 

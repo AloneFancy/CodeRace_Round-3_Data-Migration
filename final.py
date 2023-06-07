@@ -174,7 +174,7 @@ if __name__ == "__main__":
     write_to_rst_file(data_in_json.Data_in_json)
     
     ### TASK 3 can be run by 'python git_upload.py' independently
-    # 'git_upload.py' can run independent from 'final.py' to push RST file to Github
+    # 'git_upload.py' can run independently from 'final.py' to push RST file to Github
     # uncomment the following code if you want to see 
     # full processes performance of handling Reqif file to uploading results to Github repo:
     # subprocess.run(['python','git_upload.py'])
